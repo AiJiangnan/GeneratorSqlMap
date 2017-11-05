@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	<jdbcConnection
+		driver="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/example"
+		username="root"
+		password="root"
+	></jdbcConnection>
+	<javaModelGenerator
+		targetPackage="com.example.pojo"
+		targetProject=".\src"
+	></javaModelGenerator>
+	<mapperGenerator
+		targetPackage="com.example.mapper"
+		targetProject=".\src"
+	></mapperGenerator>
+	<javaInterfaceGenerator
+		targetPackage="com.example.mapper"
+		targetProject=".\src"
+	></javaInterfaceGenerator>
+	<table className="" tableName="user"></table>
+	<table className="" tableName=""></table>
+	<table className="" tableName=""></table>
+	<table className="" tableName=""></table>
+	<table className="" tableName=""></table>
+</config>
