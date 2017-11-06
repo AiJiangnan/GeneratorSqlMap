@@ -9,7 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ajn.mybatis.generator.config.XmlConfig;
+import com.ajn.mybatis.generator.config.XmlConfiguration;
+import com.ajn.mybatis.generator.config.impl.XmlConfigurationImpl;
 import com.ajn.mybatis.generator.model.DataSource;
 import com.ajn.mybatis.generator.model.TableProp;
 
@@ -19,7 +20,8 @@ public class Jdbc {
 	private static Connection conn = null;
 
 	static {
-		DataSource dataSource = XmlConfig.getDataSource();
+		XmlConfiguration config = new XmlConfigurationImpl();
+		DataSource dataSource = config.getDataSource();
 		String sql = "SELECT * FROM user";
 		PreparedStatement stat = null;
 		ResultSet rs = null;

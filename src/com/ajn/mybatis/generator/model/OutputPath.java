@@ -1,34 +1,35 @@
 package com.ajn.mybatis.generator.model;
 
+import java.util.Map;
+
 public class OutputPath {
 
-	private String modelPackage;
-	private String modelProject;
+	private Map<String, String> modelPath;
+	private Map<String, String> mapperPath;
+	private Map<String, String> interfacePath;
 
-	public OutputPath() {
-		super();
+	public Map<String, String> getModelPath() {
+		return modelPath;
 	}
 
-	public OutputPath(String modelPackage, String modelProject) {
-		super();
-		this.modelPackage = modelPackage;
-		this.modelProject = modelProject;
+	public void setModelPath(Map<String, String> modelPath) {
+		this.modelPath = modelPath;
 	}
 
-	public String getModelPackage() {
-		return modelPackage;
+	public Map<String, String> getMapperPath() {
+		return mapperPath;
 	}
 
-	public void setModelPackage(String modelPackage) {
-		this.modelPackage = modelPackage;
+	public void setMapperPath(Map<String, String> mapperPath) {
+		this.mapperPath = mapperPath;
 	}
 
-	public String getModelProject() {
-		return modelProject;
+	public Map<String, String> getInterfacePath() {
+		return interfacePath;
 	}
 
-	public void setModelProject(String modelProject) {
-		this.modelProject = modelProject;
+	public void setInterfacePath(Map<String, String> interfacePath) {
+		this.interfacePath = interfacePath;
 	}
 
 }
