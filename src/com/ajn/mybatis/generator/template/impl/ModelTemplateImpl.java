@@ -6,10 +6,10 @@ import com.ajn.mybatis.generator.constants.ModelConstants;
 import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
-import com.ajn.mybatis.generator.template.PojoTemplate;
+import com.ajn.mybatis.generator.template.ModelTemplate;
 import com.ajn.mybatis.generator.utils.NameUtil;
 
-public class PojoTemplateImpl extends PojoTemplate {
+public class ModelTemplateImpl extends ModelTemplate {
 
 	@Override
 	protected String genPackage(String packageName) {

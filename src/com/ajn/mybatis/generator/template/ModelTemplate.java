@@ -6,7 +6,7 @@ import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 
-public abstract class PojoTemplate {
+public abstract class ModelTemplate {
 
 	protected abstract String genPackage(String packageName);
 

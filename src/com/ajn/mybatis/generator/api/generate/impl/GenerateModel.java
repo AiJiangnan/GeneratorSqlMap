@@ -11,8 +11,8 @@ import com.ajn.mybatis.generator.config.impl.XmlConfigurationImpl;
 import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
-import com.ajn.mybatis.generator.template.PojoTemplate;
-import com.ajn.mybatis.generator.template.impl.PojoTemplateImpl;
+import com.ajn.mybatis.generator.template.ModelTemplate;
+import com.ajn.mybatis.generator.template.impl.ModelTemplateImpl;
 import com.ajn.mybatis.generator.utils.FileUtil;
 import com.ajn.mybatis.generator.utils.NameUtil;
 
@@ -20,7 +20,7 @@ public class GenerateModel implements GenerateFile {
 
 	private XmlConfiguration xmlConfig = new XmlConfigurationImpl();
 	private JdbcConfiguration jdbcConfig = new JdbcConfigurationImpl();
-	private PojoTemplate modelTemplate = new PojoTemplateImpl();
+	private ModelTemplate modelTemplate = new ModelTemplateImpl();
 
 	@Override
 	public void generateFile() {
