@@ -22,6 +22,4 @@
 	<table className="" tableName="user"></table>
 	<table className="" tableName="user1"></table>
 	<table className="" tableName="user2"></table>
-	<table className="" tableName="user3"></table>
-	<table className="" tableName="user4"></table>
 </config>
