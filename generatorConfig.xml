@@ -9,15 +9,15 @@
 	></jdbcConnection>
 	<javaModelGenerator
 		targetPackage="com.example.pojo"
-		targetProject=".\src"
+		targetProject="./src"
 	></javaModelGenerator>
 	<mapperGenerator
 		targetPackage="com.example.mapper"
-		targetProject=".\src"
+		targetProject="./src"
 	></mapperGenerator>
 	<javaInterfaceGenerator
 		targetPackage="com.example.mapper"
-		targetProject=".\src"
+		targetProject="./src"
 	></javaInterfaceGenerator>
 	<table className="" tableName="user"></table>
 	<table className="" tableName="user1"></table>

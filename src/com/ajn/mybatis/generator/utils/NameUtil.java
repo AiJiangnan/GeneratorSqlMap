@@ -1,12 +1,22 @@
 package com.ajn.mybatis.generator.utils;
 
 /**
- * 下划线驼峰等命名转换工具
+ * 命名转换工具
  * 
  * @author 艾江南
  *
  */
 public class NameUtil {
+
+	/**
+	 * 包名转换为目录名
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static String packageToDir(String name) {
+		return "/" + name.replace(".", "/");
+	}
 
 	/**
 	 * firstShoppingDate --> first_shopping_date
@@ -51,6 +61,17 @@ public class NameUtil {
 			}
 		}
 		return result.toString();
+	}
+
+	/**
+	 * first_shopping_date --> FirstShoppingDate
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static String bigHumpName(String name) {
+		String humpName = humpName(name);
+		return humpName.substring(0, 1).toUpperCase() + humpName.substring(1);
 	}
 
 	public static void main(String[] args) {
