@@ -3,7 +3,6 @@ package com.ajn.mybatis.generator.template;
 import java.util.List;
 
 import com.ajn.mybatis.generator.constants.Template;
-import com.ajn.mybatis.generator.model.OutputPath;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 
@@ -21,9 +20,9 @@ public abstract class PojoTemplate {
 
 	protected abstract String genSetter(List<TableProp> tableProp);
 
-	public final String genModel(OutputPath outputPath, Tables table, List<TableProp> tableProp) {
+	public final String genModel(String packageName, Tables table, List<TableProp> tableProp) {
 		String result = "";
-		result += genPackage(outputPath.getModelPath().get("targetPackage"));
+		result += genPackage(packageName);
 		result += Template.NEXT_LINE;
 		result += genClassBegin(table);
 		result += Template.NEXT_LINE;

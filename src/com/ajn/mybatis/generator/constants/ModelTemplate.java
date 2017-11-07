@@ -2,7 +2,6 @@ package com.ajn.mybatis.generator.constants;
 
 public interface ModelTemplate {
 
-	final static String PACKAGE = "package %s;";
 	final static String CLASS_BEGIN = "public class %s{";
 	final static String CLASS_END = "}";
 	final static String VARIABLE = "\tprivate %s %s;\r\n";

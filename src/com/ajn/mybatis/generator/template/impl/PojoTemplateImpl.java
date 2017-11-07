@@ -13,7 +13,7 @@ public class PojoTemplateImpl extends PojoTemplate {
 
 	@Override
 	protected String genPackage(String packageName) {
-		return String.format(ModelTemplate.PACKAGE, packageName);
+		return String.format(Template.PACKAGE, packageName);
 	}
 
 	@Override

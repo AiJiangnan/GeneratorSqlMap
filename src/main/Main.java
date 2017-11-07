@@ -9,6 +9,10 @@ public class Main {
 		GenerateFactory factory = new GenerateFactory();
 		GenerateFile generateFile = factory.getGenerateFile("MODEL");
 		generateFile.generateFile();
+		generateFile = factory.getGenerateFile("INTERFACE");
+		generateFile.generateFile();
+		generateFile = factory.getGenerateFile("MAPPER");
+		generateFile.generateFile();
 	}
 
 }
