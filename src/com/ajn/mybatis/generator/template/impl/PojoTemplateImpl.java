@@ -2,8 +2,8 @@ package com.ajn.mybatis.generator.template.impl;
 
 import java.util.List;
 
-import com.ajn.mybatis.generator.constants.ModelTemplate;
-import com.ajn.mybatis.generator.constants.Template;
+import com.ajn.mybatis.generator.constants.ModelConstants;
+import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 import com.ajn.mybatis.generator.template.PojoTemplate;
@@ -13,27 +13,27 @@ public class PojoTemplateImpl extends PojoTemplate {
 
 	@Override
 	protected String genPackage(String packageName) {
-		return String.format(Template.PACKAGE, packageName);
+		return String.format(Constants.PACKAGE, packageName);
 	}
 
 	@Override
 	protected String genClassBegin(Tables table) {
 		String className = table.getClassName();
 		String tableName = NameUtil.bigHumpName(table.getTableName());
-		return String.format(ModelTemplate.CLASS_BEGIN,
+		return String.format(ModelConstants.CLASS_BEGIN,
 				className == null || "".equals(className) ? tableName : className);
 	}
 
 	@Override
 	protected String genClassEnd() {
-		return ModelTemplate.CLASS_END;
+		return ModelConstants.CLASS_END;
 	}
 
 	@Override
 	protected String genVariable(List<TableProp> tableProp) {
 		String result = "";
 		for (TableProp table : tableProp) {
-			result += String.format(ModelTemplate.VARIABLE, table.getColumnClassName(),
+			result += String.format(ModelConstants.VARIABLE, table.getColumnClassName(),
 					NameUtil.humpName(table.getColumnName()));
 		}
 		return result;
@@ -45,8 +45,8 @@ public class PojoTemplateImpl extends PojoTemplate {
 		for (TableProp table : tableProp) {
 			String humpName = NameUtil.humpName(table.getColumnName());
 			String bigHumpName = NameUtil.bigHumpName(table.getColumnName());
-			result += String.format(ModelTemplate.GETTER, table.getColumnClassName(), bigHumpName, humpName);
-			result += Template.NEXT_LINE;
+			result += String.format(ModelConstants.GETTER, table.getColumnClassName(), bigHumpName, humpName);
+			result += Constants.NEXT_LINE;
 		}
 		return result;
 	}
@@ -57,9 +57,9 @@ public class PojoTemplateImpl extends PojoTemplate {
 		for (TableProp table : tableProp) {
 			String humpName = NameUtil.humpName(table.getColumnName());
 			String bigHumpName = NameUtil.bigHumpName(table.getColumnName());
-			result += String.format(ModelTemplate.SETTER, bigHumpName, table.getColumnClassName(), humpName, humpName,
+			result += String.format(ModelConstants.SETTER, bigHumpName, table.getColumnClassName(), humpName, humpName,
 					humpName);
-			result += Template.NEXT_LINE;
+			result += Constants.NEXT_LINE;
 		}
 		return result;
 	}

@@ -1,6 +1,6 @@
 package com.ajn.mybatis.generator.constants;
 
-public interface Template {
+public interface Constants {
 
 	final static String PACKAGE = "package %s;";
 	final static String ONE_LINE = "\r\n";

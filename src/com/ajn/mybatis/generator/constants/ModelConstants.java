@@ -1,6 +1,6 @@
 package com.ajn.mybatis.generator.constants;
 
-public interface ModelTemplate {
+public interface ModelConstants {
 
 	final static String CLASS_BEGIN = "public class %s{";
 	final static String CLASS_END = "}";

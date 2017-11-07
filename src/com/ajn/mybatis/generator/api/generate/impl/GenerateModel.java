@@ -8,7 +8,7 @@ import com.ajn.mybatis.generator.config.JdbcConfiguration;
 import com.ajn.mybatis.generator.config.XmlConfiguration;
 import com.ajn.mybatis.generator.config.impl.JdbcConfigurationImpl;
 import com.ajn.mybatis.generator.config.impl.XmlConfigurationImpl;
-import com.ajn.mybatis.generator.constants.Template;
+import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 import com.ajn.mybatis.generator.template.PojoTemplate;
@@ -35,7 +35,7 @@ public class GenerateModel implements GenerateFile {
 
 	private void genOneFile(String dirName, Tables table) {
 		List<TableProp> list = jdbcConfig.getTables(table.getTableName());
-		String fileName = String.format(Template.JAVA_FILE_NAME, NameUtil.bigHumpName(table.getTableName()));
+		String fileName = String.format(Constants.JAVA_FILE_NAME, NameUtil.bigHumpName(table.getTableName()));
 		String modelPakPath = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
 		String result = modelTemplate.genModel(modelPakPath, table, list);
 		File file = FileUtil.newFile(dirName, fileName);

@@ -8,7 +8,7 @@ import com.ajn.mybatis.generator.config.JdbcConfiguration;
 import com.ajn.mybatis.generator.config.XmlConfiguration;
 import com.ajn.mybatis.generator.config.impl.JdbcConfigurationImpl;
 import com.ajn.mybatis.generator.config.impl.XmlConfigurationImpl;
-import com.ajn.mybatis.generator.constants.Template;
+import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 import com.ajn.mybatis.generator.template.InterfaceTemplate;
@@ -36,7 +36,7 @@ public class GenerateInterface implements GenerateFile {
 
 	private void genOneFile(String dirName, Tables table) {
 		// List<TableProp> list = jdbcConfig.getTables(table.getTableName());
-		String fileName = String.format(Template.JAVA_MAPPER_NAME, NameUtil.bigHumpName(table.getTableName()));
+		String fileName = String.format(Constants.JAVA_MAPPER_NAME, NameUtil.bigHumpName(table.getTableName()));
 		String interfacePakPath = xmlConfig.getOutputPath().getInterfacePath().get("targetPackage");
 		String modelPakPath = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
 		String result = interfaceTemplate.genInterface(interfacePakPath, modelPakPath, table);

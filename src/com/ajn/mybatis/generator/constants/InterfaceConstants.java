@@ -1,6 +1,6 @@
 package com.ajn.mybatis.generator.constants;
 
-public interface InterTemplate {
+public interface InterfaceConstants {
 
 	final static String INTERFACE_BEGIN = "public interface %sMapper{";
 	final static String INTERFACE_END = "}";
