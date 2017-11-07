@@ -29,9 +29,8 @@ public class GenerateModel implements GenerateFile {
 		String modelDirPath = NameUtil.packageToDir(xmlConfig.getOutputPath().getModelPath().get("targetPackage"));
 		String modelProPath = xmlConfig.getOutputPath().getModelPath().get("targetProject");
 
-		for (Tables table : tables) {
+		for (Tables table : tables)
 			genOneFile(modelProPath + modelDirPath, table);
-		}
 	}
 
 	private void genOneFile(String dirName, Tables table) {

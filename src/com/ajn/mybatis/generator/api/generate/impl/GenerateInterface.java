@@ -30,9 +30,8 @@ public class GenerateInterface implements GenerateFile {
 				.packageToDir(xmlConfig.getOutputPath().getInterfacePath().get("targetPackage"));
 		String interfaceProPath = xmlConfig.getOutputPath().getInterfacePath().get("targetProject");
 
-		for (Tables table : tables) {
+		for (Tables table : tables)
 			genOneFile(interfaceProPath + interfaceDirPath, table);
-		}
 	}
 
 	private void genOneFile(String dirName, Tables table) {
