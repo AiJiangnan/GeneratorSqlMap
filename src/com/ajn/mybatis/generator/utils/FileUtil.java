@@ -6,6 +6,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+/**
+ * 文件操作的工具类
+ * 
+ * @author 艾江南
+ *
+ */
 public class FileUtil {
 
 	/**

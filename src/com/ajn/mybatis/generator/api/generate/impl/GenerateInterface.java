@@ -16,6 +16,12 @@ import com.ajn.mybatis.generator.template.impl.InterfaceTemplateImpl;
 import com.ajn.mybatis.generator.utils.FileUtil;
 import com.ajn.mybatis.generator.utils.NameUtil;
 
+/**
+ * 生成接口文件的实现类
+ * 
+ * @author 艾江南
+ *
+ */
 public class GenerateInterface implements GenerateFile {
 
 	private XmlConfiguration xmlConfig = new XmlConfigurationImpl();

@@ -12,7 +12,7 @@ import com.ajn.mybatis.generator.model.DataSource;
 /**
  * JDBC的单例
  * 
- * @author Administrator
+ * @author 艾江南
  *
  */
 public class JdbcConfig {
@@ -32,6 +32,11 @@ public class JdbcConfig {
 		}
 	}
 
+	/**
+	 * 获取数据库连接
+	 * 
+	 * @return
+	 */
 	public Connection getConnection() {
 		try {
 			return DriverManager.getConnection(dataSource.getUrl(), dataSource.getUsername(), dataSource.getPassword());
@@ -41,6 +46,13 @@ public class JdbcConfig {
 		return null;
 	}
 
+	/**
+	 * 关闭数据库操作的所有资源
+	 * 
+	 * @param conn
+	 * @param stat
+	 * @param rs
+	 */
 	public void closeConnection(Connection conn, Statement stat, ResultSet rs) {
 		try {
 			if (rs != null)
@@ -54,6 +66,11 @@ public class JdbcConfig {
 		}
 	}
 
+	/**
+	 * 获取JDBC配置的实例
+	 * 
+	 * @return
+	 */
 	public static JdbcConfig getInstance() {
 		if (instance == null)
 			instance = new JdbcConfig();

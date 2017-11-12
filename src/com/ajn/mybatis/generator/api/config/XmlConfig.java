@@ -33,10 +33,20 @@ public class XmlConfig {
 		}
 	}
 
+	/**
+	 * 获取配置文件中信息，返回根节点
+	 * 
+	 * @return
+	 */
 	public Element getRoot() {
 		return root;
 	}
 
+	/**
+	 * 获取XML配置文件的实例
+	 * 
+	 * @return
+	 */
 	public static XmlConfig getInstance() {
 		if (instance == null)
 			instance = new XmlConfig();

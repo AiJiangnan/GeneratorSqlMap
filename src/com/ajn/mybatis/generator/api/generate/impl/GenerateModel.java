@@ -16,6 +16,12 @@ import com.ajn.mybatis.generator.template.impl.ModelTemplateImpl;
 import com.ajn.mybatis.generator.utils.FileUtil;
 import com.ajn.mybatis.generator.utils.NameUtil;
 
+/**
+ * 生成实体类文件的实现类
+ * 
+ * @author 艾江南
+ *
+ */
 public class GenerateModel implements GenerateFile {
 
 	private XmlConfiguration xmlConfig = new XmlConfigurationImpl();

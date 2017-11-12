@@ -1,5 +1,11 @@
 package com.ajn.mybatis.generator.constants;
 
+/**
+ * 生成实体类中的字符串模板
+ * 
+ * @author 艾江南
+ *
+ */
 public interface ModelConstants {
 
 	final static String CLASS_BEGIN = "public class %s{";

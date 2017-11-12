@@ -2,6 +2,12 @@ package com.ajn.mybatis.generator.model;
 
 import java.util.Map;
 
+/**
+ * 生成文件输出路径
+ * 
+ * @author 艾江南
+ *
+ */
 public class OutputPath {
 
 	private Map<String, String> modelPath;

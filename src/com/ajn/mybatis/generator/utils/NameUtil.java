@@ -1,7 +1,7 @@
 package com.ajn.mybatis.generator.utils;
 
 /**
- * 命名转换工具
+ * 命名转换工具类
  * 
  * @author 艾江南
  *

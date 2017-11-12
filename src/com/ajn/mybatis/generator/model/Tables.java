@@ -1,5 +1,11 @@
 package com.ajn.mybatis.generator.model;
 
+/**
+ * 配置文件中的数据库表名和对应的实体类名
+ * 
+ * @author 艾江南
+ *
+ */
 public class Tables {
 
 	private String tableName;

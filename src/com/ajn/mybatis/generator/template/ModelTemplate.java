@@ -6,6 +6,12 @@ import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 
+/**
+ * 生成实体类Java文件的模板
+ * 
+ * @author 艾江南
+ *
+ */
 public abstract class ModelTemplate {
 
 	protected abstract String genPackage(String packageName);

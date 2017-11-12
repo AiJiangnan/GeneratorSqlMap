@@ -3,6 +3,12 @@ package com.ajn.mybatis.generator.template;
 import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.Tables;
 
+/**
+ * 生成接口Java文件的模板
+ * 
+ * @author 艾江南
+ *
+ */
 public abstract class InterfaceTemplate {
 
 	protected abstract String genPackage(String packageName);

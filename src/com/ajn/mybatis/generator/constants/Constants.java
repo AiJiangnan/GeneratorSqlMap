@@ -1,5 +1,11 @@
 package com.ajn.mybatis.generator.constants;
 
+/**
+ * 公共的字符串模板
+ * 
+ * @author 艾江南
+ *
+ */
 public interface Constants {
 
 	final static String PACKAGE = "package %s;";
