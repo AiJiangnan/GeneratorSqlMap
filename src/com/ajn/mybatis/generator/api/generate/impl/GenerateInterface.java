@@ -32,21 +32,19 @@ public class GenerateInterface implements GenerateFile {
 	public void generateFile() {
 		List<Tables> tables = xmlConfig.getTables();
 
-		String interfaceDirPath = NameUtil
-				.packageToDir(xmlConfig.getOutputPath().getInterfacePath().get("targetPackage"));
-		String interfaceProPath = xmlConfig.getOutputPath().getInterfacePath().get("targetProject");
-
 		for (Tables table : tables)
-			genOneFile(interfaceProPath + interfaceDirPath, table);
+			genOneFile(table);
 	}
 
-	private void genOneFile(String dirName, Tables table) {
+	private void genOneFile(Tables table) {
 		// List<TableProp> list = jdbcConfig.getTables(table.getTableName());
+		String infacePak = xmlConfig.getOutputPath().getInterfacePath().get("targetPackage");
+		String infacePro = xmlConfig.getOutputPath().getInterfacePath().get("targetProject");
+		String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
+		String infaceDir = NameUtil.packageToDir(infacePak);
 		String fileName = String.format(Constants.JAVA_MAPPER_NAME, NameUtil.bigHumpName(table.getTableName()));
-		String interfacePakPath = xmlConfig.getOutputPath().getInterfacePath().get("targetPackage");
-		String modelPakPath = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
-		String result = interfaceTemplate.genInterface(interfacePakPath, modelPakPath, table);
-		File file = FileUtil.newFile(dirName, fileName);
+		String result = interfaceTemplate.genInterface(infacePak, modelPak, table);
+		File file = FileUtil.newFile(infacePro + infaceDir, fileName);
 		FileUtil.writeFile(file, result);
 	}
 }

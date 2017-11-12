@@ -32,19 +32,18 @@ public class GenerateModel implements GenerateFile {
 	public void generateFile() {
 		List<Tables> tables = xmlConfig.getTables();
 
-		String modelDirPath = NameUtil.packageToDir(xmlConfig.getOutputPath().getModelPath().get("targetPackage"));
-		String modelProPath = xmlConfig.getOutputPath().getModelPath().get("targetProject");
-
 		for (Tables table : tables)
-			genOneFile(modelProPath + modelDirPath, table);
+			genOneFile(table);
 	}
 
-	private void genOneFile(String dirName, Tables table) {
+	private void genOneFile(Tables table) {
 		List<TableProp> list = jdbcConfig.getTables(table.getTableName());
+		String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
+		String modelPro = xmlConfig.getOutputPath().getModelPath().get("targetProject");
+		String modelDir = NameUtil.packageToDir(modelPak);
 		String fileName = String.format(Constants.JAVA_FILE_NAME, NameUtil.bigHumpName(table.getTableName()));
-		String modelPakPath = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
-		String result = modelTemplate.genModel(modelPakPath, table, list);
-		File file = FileUtil.newFile(dirName, fileName);
+		String result = modelTemplate.genModel(modelPak, table, list);
+		File file = FileUtil.newFile(modelPro + modelDir, fileName);
 		FileUtil.writeFile(file, result);
 	}
 
