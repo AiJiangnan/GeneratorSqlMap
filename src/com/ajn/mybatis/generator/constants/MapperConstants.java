@@ -12,5 +12,7 @@ public interface MapperConstants {
 	final static String MAPPER_XML_BEGIN = "<mapper namespace=\"%sMapper\">";
 	final static String MAPPER_XML_END = "</mapper>";
 	final static String MAPPER_XML_SQL_LIST = "\t<sql id=\"baseColumnList\">\r\n\t\t%s\r\n\t</sql>";
+	final static String MAPPER_XML_MODEL_VARIABLE = "#{%s}";
+	final static String MAPPER_XML_INSERT_ALL = "\t<insert id=\"insAll\">\r\n\t\tINSERT INTO %s (<include refid=\"baseColumnList\"></include>) VALUES (%s)\r\n\t</insert>";
 
 }

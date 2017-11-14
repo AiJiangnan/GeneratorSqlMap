@@ -22,6 +22,8 @@ public abstract class MapperTemplate {
 	protected abstract String genMapperEnd();
 
 	protected abstract String genSqlList(List<TableProp> tableProp);
+	
+	protected abstract String genSqlMethod(String tableName, List<TableProp> tableProp);
 
 	protected abstract String genResultMap();
 
@@ -35,7 +37,8 @@ public abstract class MapperTemplate {
 		result += Constants.NEXT_LINE;
 		result += genSqlList(tableProp);
 		result += Constants.NEXT_LINE;
-		result += genResultMap();
+		// result += genResultMap();
+		result += genSqlMethod(tableName,tableProp);
 		result += Constants.NEXT_LINE;
 		result += genMapperEnd();
 		return result;
