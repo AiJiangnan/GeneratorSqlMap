@@ -43,7 +43,10 @@ public class GenerateMapper implements GenerateFile {
 		String mapperPro = xmlConfig.getOutputPath().getMapperPath().get("targetProject");
 		String interfacePak = xmlConfig.getOutputPath().getInterfacePath().get("targetPackage");
 		String mapperDir = NameUtil.packageToDir(mapperPak);
-		String fileName = String.format(Constants.XML_MAPPER_NAME, NameUtil.bigHumpName(table.getTableName()));
+		String className = table.getClassName();
+		String tableName = table.getTableName();
+		className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
+		String fileName = String.format(Constants.XML_MAPPER_NAME, className);
 		String result = mapperTemplate.genMapper(interfacePak, table, tables);
 		File file = FileUtil.newFile(mapperPro + mapperDir, fileName);
 		FileUtil.writeFile(file, result);

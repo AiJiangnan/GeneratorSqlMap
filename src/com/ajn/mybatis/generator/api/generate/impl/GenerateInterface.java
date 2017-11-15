@@ -42,7 +42,10 @@ public class GenerateInterface implements GenerateFile {
 		String infacePro = xmlConfig.getOutputPath().getInterfacePath().get("targetProject");
 		String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
 		String infaceDir = NameUtil.packageToDir(infacePak);
-		String fileName = String.format(Constants.JAVA_MAPPER_NAME, NameUtil.bigHumpName(table.getTableName()));
+		String className = table.getClassName();
+		String tableName = table.getTableName();
+		className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
+		String fileName = String.format(Constants.JAVA_MAPPER_NAME, className);
 		String result = interfaceTemplate.genInterface(infacePak, modelPak, table);
 		File file = FileUtil.newFile(infacePro + infaceDir, fileName);
 		FileUtil.writeFile(file, result);

@@ -41,7 +41,10 @@ public class GenerateModel implements GenerateFile {
 		String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
 		String modelPro = xmlConfig.getOutputPath().getModelPath().get("targetProject");
 		String modelDir = NameUtil.packageToDir(modelPak);
-		String fileName = String.format(Constants.JAVA_FILE_NAME, NameUtil.bigHumpName(table.getTableName()));
+		String className = table.getClassName();
+		String tableName = table.getTableName();
+		className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
+		String fileName = String.format(Constants.JAVA_FILE_NAME, className);
 		String result = modelTemplate.genModel(modelPak, table, list);
 		File file = FileUtil.newFile(modelPro + modelDir, fileName);
 		FileUtil.writeFile(file, result);

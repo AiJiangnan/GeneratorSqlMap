@@ -8,7 +8,7 @@ package com.ajn.mybatis.generator.constants;
  */
 public interface ModelConstants {
 
-	final static String CLASS_BEGIN = "public class %s {";
+	final static String CLASS_BEGIN = "public class %s implements Serializable {";
 	final static String CLASS_END = "}";
 	final static String VARIABLE = "\tprivate %s %s;\r\n";
 	final static String GETTER = "\tpublic %s get%s() {\r\n\t\treturn %s;\r\n\t}";
