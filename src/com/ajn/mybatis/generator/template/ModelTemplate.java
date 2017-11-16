@@ -16,6 +16,8 @@ public abstract class ModelTemplate {
 
 	protected abstract String genPackage(String packageName);
 
+	protected abstract String genImport();
+
 	protected abstract String genClassBegin(Tables table);
 
 	protected abstract String genClassEnd();
@@ -30,6 +32,8 @@ public abstract class ModelTemplate {
 		String result = "";
 		result += genPackage(packageName);
 		result += Constants.NEXT_LINE;
+		result += genImport();
+		result += Constants.ONE_LINE;
 		result += genClassBegin(table);
 		result += Constants.NEXT_LINE;
 		result += genVariable(tableProp);

@@ -64,4 +64,9 @@ public class ModelTemplateImpl extends ModelTemplate {
 		return result;
 	}
 
+	@Override
+	protected String genImport() {
+		return Constants.IMPORT_SERIALLIZABLE;
+	}
+
 }

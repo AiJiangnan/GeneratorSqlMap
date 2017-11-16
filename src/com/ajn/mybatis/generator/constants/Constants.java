@@ -17,5 +17,6 @@ public interface Constants {
 
 	final static String IMPORT_MODEL = "import %s.%s;\r\n";
 	final static String IMPORT_LIST = "import java.util.List;\r\n";
+	final static String IMPORT_SERIALLIZABLE = "import java.io.Serializable;\r\n";
 
 }
