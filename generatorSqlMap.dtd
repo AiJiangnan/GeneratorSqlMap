@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE config [
+	<!ELEMENT config (jdbcConnection,jdbcConnection,javaModelGenerator,mapperGenerator,mapperGenerator,javaInterfaceGenerator,table)>
+	<!ELEMENT jdbcConnection (#PCDATA)>
+	<!ELEMENT javaModelGenerator (#PCDATA)>
+	<!ELEMENT mapperGenerator (#PCDATA)>
+	<!ELEMENT javaInterfaceGenerator (#PCDATA)>
+	<!ELEMENT table (#PCDATA)>
+]>

@@ -15,6 +15,9 @@ public interface Constants {
 	final static String JAVA_MAPPER_NAME = "%sMapper.java";
 	final static String XML_MAPPER_NAME = "%sMapper.xml";
 
+	/**
+	 * 导入包
+	 */
 	final static String IMPORT_MODEL = "import %s.%s;\r\n";
 	final static String IMPORT_LIST = "import java.util.List;\r\n";
 	final static String IMPORT_UTIL_DATE = "import java.util.Date;\r\n";
