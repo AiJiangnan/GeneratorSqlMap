@@ -10,6 +10,7 @@ public interface InterfaceConstants {
 
 	final static String INTERFACE_BEGIN = "public interface %sMapper {";
 	final static String INTERFACE_END = "}";
-	final static String SELECT_ALL_METHOD = "\tList<%s> selAll();\r\n";
+	final static String SELECT_ENTITY_LIST_METHOD = "\tList<%s> sel%sList();";
+	final static String INSERT_ENTITY_METHOD = "\tint ins%s();";
 
 }

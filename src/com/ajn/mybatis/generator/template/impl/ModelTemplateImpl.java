@@ -65,8 +65,15 @@ public class ModelTemplateImpl extends ModelTemplate {
 	}
 
 	@Override
-	protected String genImport() {
-		return Constants.IMPORT_SERIALLIZABLE;
+	protected String genImport(List<TableProp> tableProp) {
+		String result = Constants.IMPORT_SERIALLIZABLE;
+		for (TableProp tp : tableProp) {
+			if (tp.getColumnClassName().equals("Date")) {
+				result += Constants.IMPORT_UTIL_DATE;
+				break;
+			}
+		}
+		return result;
 	}
 
 }

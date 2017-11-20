@@ -21,13 +21,13 @@ public abstract class MapperTemplate {
 
 	protected abstract String genMapperEnd();
 
-	protected abstract String genSqlList(List<TableProp> tableProp);
-	
-	protected abstract String genSqlMethod(String tableName, List<TableProp> tableProp);
+	protected abstract String genSqlList(String className, List<TableProp> tableProp);
 
-	protected abstract String genResultMap();
+	protected abstract String genSqlMethod(String className, String tableName, List<TableProp> tableProp);
 
-	public final String genMapper(String interfacePak, Tables table, List<TableProp> tableProp) {
+	protected abstract String genResultMap(String modelPakName, String className, List<TableProp> tableProp);
+
+	public final String genMapper(String interfacePak, String modelPakName, Tables table, List<TableProp> tableProp) {
 		String className = table.getClassName();
 		String tableName = table.getTableName();
 		className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
@@ -35,10 +35,11 @@ public abstract class MapperTemplate {
 		result += genDoctype();
 		result += genMapperBegin(interfacePak, className);
 		result += Constants.NEXT_LINE;
-		result += genSqlList(tableProp);
+		result += genSqlList(className, tableProp);
 		result += Constants.NEXT_LINE;
-		// result += genResultMap();
-		result += genSqlMethod(tableName,tableProp);
+		result += genResultMap(modelPakName, className, tableProp);
+		result += Constants.NEXT_LINE;
+		result += genSqlMethod(className, tableName, tableProp);
 		result += Constants.NEXT_LINE;
 		result += genMapperEnd();
 		return result;

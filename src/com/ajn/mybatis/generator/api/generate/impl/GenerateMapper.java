@@ -35,19 +35,22 @@ public class GenerateMapper implements GenerateFile {
 		for (Tables table : tables) {
 			genOneFile(table);
 		}
+
+		System.out.println("Mapper finished!");
 	}
 
 	private void genOneFile(Tables table) {
 		List<TableProp> tables = jdbcConfig.getTables(table.getTableName());
 		String mapperPak = xmlConfig.getOutputPath().getMapperPath().get("targetPackage");
 		String mapperPro = xmlConfig.getOutputPath().getMapperPath().get("targetProject");
+		String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
 		String interfacePak = xmlConfig.getOutputPath().getInterfacePath().get("targetPackage");
 		String mapperDir = NameUtil.packageToDir(mapperPak);
 		String className = table.getClassName();
 		String tableName = table.getTableName();
 		className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
 		String fileName = String.format(Constants.XML_MAPPER_NAME, className);
-		String result = mapperTemplate.genMapper(interfacePak, table, tables);
+		String result = mapperTemplate.genMapper(interfacePak, modelPak, table, tables);
 		File file = FileUtil.newFile(mapperPro + mapperDir, fileName);
 		FileUtil.writeFile(file, result);
 	}

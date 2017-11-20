@@ -34,6 +34,8 @@ public class GenerateInterface implements GenerateFile {
 
 		for (Tables table : tables)
 			genOneFile(table);
+
+		System.out.println("Interface finished!");
 	}
 
 	private void genOneFile(Tables table) {

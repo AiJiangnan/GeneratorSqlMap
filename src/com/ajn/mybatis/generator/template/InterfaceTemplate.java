@@ -34,7 +34,7 @@ public abstract class InterfaceTemplate {
 		result += genInterfaceBegin(className);
 		result += Constants.NEXT_LINE;
 		result += genMethod(className);
-		result += Constants.ONE_LINE;
+		result += Constants.NEXT_LINE;
 		result += genInterfaceEnd();
 		return result;
 	}

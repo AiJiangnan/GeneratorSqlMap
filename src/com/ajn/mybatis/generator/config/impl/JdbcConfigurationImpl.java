@@ -33,6 +33,9 @@ public class JdbcConfigurationImpl implements JdbcConfiguration {
 				tableProp.setColumnName(metaData.getColumnName(i));
 				String columnClassName = metaData.getColumnClassName(i);
 				columnClassName = columnClassName.substring(columnClassName.lastIndexOf(".") + 1);
+				if (columnClassName.equals("Timestamp")) {
+					columnClassName = "Date";
+				}
 				tableProp.setColumnClassName(columnClassName);
 				list.add(tableProp);
 			}

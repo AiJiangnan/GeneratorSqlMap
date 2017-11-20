@@ -34,6 +34,8 @@ public class GenerateModel implements GenerateFile {
 
 		for (Tables table : tables)
 			genOneFile(table);
+
+		System.out.println("Model finished!");
 	}
 
 	private void genOneFile(Tables table) {

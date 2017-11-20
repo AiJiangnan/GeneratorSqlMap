@@ -23,7 +23,11 @@ public class InterfaceTemplateImpl extends InterfaceTemplate {
 
 	@Override
 	protected String genMethod(String className) {
-		return String.format(InterfaceConstants.SELECT_ALL_METHOD, className);
+		String result = "";
+		result += String.format(InterfaceConstants.INSERT_ENTITY_METHOD, className);
+		result += Constants.NEXT_LINE;
+		result += String.format(InterfaceConstants.SELECT_ENTITY_LIST_METHOD, className, className);
+		return result;
 	}
 
 	@Override
