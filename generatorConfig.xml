@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config PUBLIC "/AIJIANGNANLOVEHOUJUANJUAN/" "generatorSqlMap.dtd">
 
 <config>
 	<jdbcConnection
 		driver="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/example"
 		username="root"
-		password="a123456"
+		password="root"
 	></jdbcConnection>
 	<javaModelGenerator
 		targetPackage="com.example.pojo"
@@ -20,6 +21,4 @@
 		targetProject="./src"
 	></javaInterfaceGenerator>
 	<table className="" tableName="user"></table>
-	<!-- <table className="" tableName="user1"></table>
-	<table className="" tableName="user2"></table> -->
 </config>
