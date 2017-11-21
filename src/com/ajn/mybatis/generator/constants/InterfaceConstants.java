@@ -15,6 +15,6 @@ public interface InterfaceConstants {
 	 * 接口中的方法
 	 */
 	final static String SELECT_ENTITY_LIST_METHOD = "\tList<%s> sel%sList();";
-	final static String INSERT_ENTITY_METHOD = "\tint ins%s();";
+	final static String INSERT_ENTITY_METHOD = "\tint ins%s(%s);";
 
 }

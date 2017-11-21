@@ -3,6 +3,7 @@ package com.ajn.mybatis.generator.template.impl;
 import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.constants.InterfaceConstants;
 import com.ajn.mybatis.generator.template.InterfaceTemplate;
+import com.ajn.mybatis.generator.utils.NameUtil;
 
 public class InterfaceTemplateImpl extends InterfaceTemplate {
 
@@ -24,7 +25,8 @@ public class InterfaceTemplateImpl extends InterfaceTemplate {
 	@Override
 	protected String genMethod(String className) {
 		String result = "";
-		result += String.format(InterfaceConstants.INSERT_ENTITY_METHOD, className);
+		result += String.format(InterfaceConstants.INSERT_ENTITY_METHOD, className,
+				className + " " + NameUtil.humpName(className));
 		result += Constants.NEXT_LINE;
 		result += String.format(InterfaceConstants.SELECT_ENTITY_LIST_METHOD, className, className);
 		return result;
