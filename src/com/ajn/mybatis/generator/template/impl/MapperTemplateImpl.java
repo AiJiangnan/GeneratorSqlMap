@@ -29,7 +29,7 @@ public class MapperTemplateImpl extends MapperTemplate {
 	protected String genSqlList(String className, List<TableProp> tableProp) {
 		String list = "";
 		for (int i = 0, n = tableProp.size(); i < n; i++) {
-			list += tableProp.get(i).getColumnName();
+			list += "`" + tableProp.get(i).getColumnName() + "`";
 			if (i < n - 1)
 				list += ",";
 		}
