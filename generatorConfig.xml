@@ -4,21 +4,22 @@
 <config>
 	<jdbcConnection
 		driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/example"
-		username="root"
-		password="root"
+		url="jdbc:mysql://192.168.4.194:3306/test"
+		username="credit"
+		password="kdVeeT7glPJu"
 	></jdbcConnection>
 	<javaModelGenerator
-		targetPackage="com.example.pojo"
+		targetPackage="com.gofun.credit.core.riskchannel.model.tencent"
 		targetProject="./src"
 	></javaModelGenerator>
 	<mapperGenerator
-		targetPackage="com.example.mapper"
+		targetPackage="com.gofun.credit.core.riskchannel.dao.tencent"
 		targetProject="./src"
 	></mapperGenerator>
 	<javaInterfaceGenerator
-		targetPackage="com.example.mapper"
+		targetPackage="com.gofun.credit.core.riskchannel.dao.tencent"
 		targetProject="./src"
 	></javaInterfaceGenerator>
-	<table className="" tableName="user"></table>
+	<table className="TencentBasicInfo" tableName="t_tencent_risk_basicinfo"></table>
+	<table className="TencentRiskInfo" tableName="t_tencent_risk_riskinfo"></table>
 </config>
