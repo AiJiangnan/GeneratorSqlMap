@@ -18,41 +18,40 @@ import com.ajn.mybatis.generator.utils.NameUtil;
 
 /**
  * 生成Mapper文件的实现类
- * 
- * @author 艾江南
  *
+ * @author 艾江南
  */
 public class GenerateMapper implements GenerateFile {
 
-	private XmlConfiguration xmlConfig = new XmlConfigurationImpl();
-	private JdbcConfiguration jdbcConfig = new JdbcConfigurationImpl();
-	private MapperTemplate mapperTemplate = new MapperTemplateImpl();
+    private XmlConfiguration xmlConfig = new XmlConfigurationImpl();
+    private JdbcConfiguration jdbcConfig = new JdbcConfigurationImpl();
+    private MapperTemplate mapperTemplate = new MapperTemplateImpl();
 
-	@Override
-	public void generateFile() {
-		List<Tables> tables = xmlConfig.getTables();
+    @Override
+    public void generateFile() {
+        List<Tables> tables = xmlConfig.getTables();
 
-		for (Tables table : tables) {
-			genOneFile(table);
-		}
+        for (Tables table : tables) {
+            genOneFile(table);
+        }
 
-		System.out.println("Mapper finished!");
-	}
+        System.out.println("Mapper finished!");
+    }
 
-	private void genOneFile(Tables table) {
-		List<TableProp> tables = jdbcConfig.getTables(table.getTableName());
-		String mapperPak = xmlConfig.getOutputPath().getMapperPath().get("targetPackage");
-		String mapperPro = xmlConfig.getOutputPath().getMapperPath().get("targetProject");
-		String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
-		String interfacePak = xmlConfig.getOutputPath().getInterfacePath().get("targetPackage");
-		String mapperDir = NameUtil.packageToDir(mapperPak);
-		String className = table.getClassName();
-		String tableName = table.getTableName();
-		className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
-		String fileName = String.format(Constants.XML_MAPPER_NAME, className);
-		String result = mapperTemplate.genMapper(interfacePak, modelPak, table, tables);
-		File file = FileUtil.newFile(mapperPro + mapperDir, fileName);
-		FileUtil.writeFile(file, result);
-	}
+    private void genOneFile(Tables table) {
+        List<TableProp> tables = jdbcConfig.getTables(table.getTableName());
+        String mapperPak = xmlConfig.getOutputPath().getMapperPath().get("targetPackage");
+        String mapperPro = xmlConfig.getOutputPath().getMapperPath().get("targetProject");
+        String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
+        String interfacePak = xmlConfig.getOutputPath().getInterfacePath().get("targetPackage");
+        String mapperDir = NameUtil.packageToDir(mapperPak);
+        String className = table.getClassName();
+        String tableName = table.getTableName();
+        className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
+        String fileName = String.format(Constants.XML_MAPPER_NAME, className);
+        String result = mapperTemplate.genMapper(interfacePak, modelPak, table, tables);
+        File file = FileUtil.newFile(mapperPro + mapperDir, fileName);
+        FileUtil.writeFile(file, result);
+    }
 
 }

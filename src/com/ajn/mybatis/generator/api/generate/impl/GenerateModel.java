@@ -18,38 +18,37 @@ import com.ajn.mybatis.generator.utils.NameUtil;
 
 /**
  * 生成实体类文件的实现类
- * 
- * @author 艾江南
  *
+ * @author 艾江南
  */
 public class GenerateModel implements GenerateFile {
 
-	private XmlConfiguration xmlConfig = new XmlConfigurationImpl();
-	private JdbcConfiguration jdbcConfig = new JdbcConfigurationImpl();
-	private ModelTemplate modelTemplate = new ModelTemplateImpl();
+    private XmlConfiguration xmlConfig = new XmlConfigurationImpl();
+    private JdbcConfiguration jdbcConfig = new JdbcConfigurationImpl();
+    private ModelTemplate modelTemplate = new ModelTemplateImpl();
 
-	@Override
-	public void generateFile() {
-		List<Tables> tables = xmlConfig.getTables();
+    @Override
+    public void generateFile() {
+        List<Tables> tables = xmlConfig.getTables();
 
-		for (Tables table : tables)
-			genOneFile(table);
+        for (Tables table : tables)
+            genOneFile(table);
 
-		System.out.println("Model finished!");
-	}
+        System.out.println("Model finished!");
+    }
 
-	private void genOneFile(Tables table) {
-		List<TableProp> list = jdbcConfig.getTables(table.getTableName());
-		String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
-		String modelPro = xmlConfig.getOutputPath().getModelPath().get("targetProject");
-		String modelDir = NameUtil.packageToDir(modelPak);
-		String className = table.getClassName();
-		String tableName = table.getTableName();
-		className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
-		String fileName = String.format(Constants.JAVA_FILE_NAME, className);
-		String result = modelTemplate.genModel(modelPak, table, list);
-		File file = FileUtil.newFile(modelPro + modelDir, fileName);
-		FileUtil.writeFile(file, result);
-	}
+    private void genOneFile(Tables table) {
+        List<TableProp> list = jdbcConfig.getTables(table.getTableName());
+        String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
+        String modelPro = xmlConfig.getOutputPath().getModelPath().get("targetProject");
+        String modelDir = NameUtil.packageToDir(modelPak);
+        String className = table.getClassName();
+        String tableName = table.getTableName();
+        className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
+        String fileName = String.format(Constants.JAVA_FILE_NAME, className);
+        String result = modelTemplate.genModel(modelPak, table, list);
+        File file = FileUtil.newFile(modelPro + modelDir, fileName);
+        FileUtil.writeFile(file, result);
+    }
 
 }
