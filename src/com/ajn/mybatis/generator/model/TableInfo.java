@@ -1,4 +1,4 @@
-package com.ajn.mybatis.generator.table;
+package com.ajn.mybatis.generator.model;
 
 public class TableInfo {
 
@@ -49,11 +49,6 @@ public class TableInfo {
 
     public void setComment(String comment) {
         this.comment = comment;
-    }
-
-    @Override
-    public String toString() {
-        return "\"" + field + "\",\"" + type + "\",\"" + isNull + "\",\"" + comment + "\"";
     }
 
 }

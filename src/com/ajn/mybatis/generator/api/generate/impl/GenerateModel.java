@@ -2,6 +2,7 @@ package com.ajn.mybatis.generator.api.generate.impl;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import com.ajn.mybatis.generator.api.generate.GenerateFile;
 import com.ajn.mybatis.generator.config.JdbcConfiguration;
@@ -39,6 +40,7 @@ public class GenerateModel implements GenerateFile {
 
     private void genOneFile(Tables table) {
         List<TableProp> list = jdbcConfig.getTables(table.getTableName());
+        Map<String, String> tableInfo = jdbcConfig.getTableInfo(table.getTableName());
         String modelPak = xmlConfig.getOutputPath().getModelPath().get("targetPackage");
         String modelPro = xmlConfig.getOutputPath().getModelPath().get("targetProject");
         String modelDir = NameUtil.packageToDir(modelPak);
@@ -46,7 +48,7 @@ public class GenerateModel implements GenerateFile {
         String tableName = table.getTableName();
         className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
         String fileName = String.format(Constants.JAVA_FILE_NAME, className);
-        String result = modelTemplate.genModel(modelPak, table, list);
+        String result = modelTemplate.genModel(modelPak, table, list, tableInfo);
         File file = FileUtil.newFile(modelPro + modelDir, fileName);
         FileUtil.writeFile(file, result);
     }

@@ -1,6 +1,7 @@
 package com.ajn.mybatis.generator.template;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
@@ -21,13 +22,13 @@ public abstract class ModelTemplate {
 
     protected abstract String genClassEnd();
 
-    protected abstract String genVariable(List<TableProp> tableProp);
+    protected abstract String genVariable(List<TableProp> tableProp, Map<String, String> tableInfo);
 
     protected abstract String genGetter(List<TableProp> tableProp);
 
     protected abstract String genSetter(List<TableProp> tableProp);
 
-    public final String genModel(String packageName, Tables table, List<TableProp> tableProp) {
+    public final String genModel(String packageName, Tables table, List<TableProp> tableProp, Map<String, String> tableInfo) {
         String result = "";
         result += genPackage(packageName);
         result += Constants.NEXT_LINE;
@@ -35,7 +36,7 @@ public abstract class ModelTemplate {
         result += Constants.ONE_LINE;
         result += genClassBegin(table);
         result += Constants.NEXT_LINE;
-        result += genVariable(tableProp);
+        result += genVariable(tableProp, tableInfo);
         result += Constants.ONE_LINE;
         result += genGetter(tableProp);
         result += genSetter(tableProp);

@@ -1,6 +1,7 @@
 package com.ajn.mybatis.generator.config;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ajn.mybatis.generator.model.TableProp;
 
@@ -18,5 +19,13 @@ public interface JdbcConfiguration {
      * @return
      */
     List<TableProp> getTables(String tableName);
+
+    /**
+     * 使用JDBC获取数据库中表的详细信息
+     *
+     * @param tableName
+     * @return
+     */
+    Map<String, String> getTableInfo(String tableName);
 
 }

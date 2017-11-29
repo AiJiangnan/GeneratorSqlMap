@@ -1,6 +1,7 @@
 package com.ajn.mybatis.generator.template.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ajn.mybatis.generator.constants.ModelConstants;
 import com.ajn.mybatis.generator.constants.Constants;
@@ -30,9 +31,13 @@ public class ModelTemplateImpl extends ModelTemplate {
     }
 
     @Override
-    protected String genVariable(List<TableProp> tableProp) {
+    protected String genVariable(List<TableProp> tableProp, Map<String, String> tableInfo) {
         String result = "";
         for (TableProp table : tableProp) {
+            final String comment = tableInfo.get(table.getColumnName());
+            if (comment != null && !"".equals(comment)) {
+                result += String.format(ModelConstants.COMMENT, comment);
+            }
             result += String.format(ModelConstants.VARIABLE, table.getColumnClassName(),
                     NameUtil.humpName(table.getColumnName()));
         }
