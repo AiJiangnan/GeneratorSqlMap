@@ -38,3 +38,12 @@ public class Main {
 
 }
 ```
+
+## 三、支持方法
+
+1. 查询  
+   `List<Example> selExample();`
+2. 插入  
+   `int insExmaple(Example example);`
+3. 更新  
+   `int updExampleById(Example example);`
