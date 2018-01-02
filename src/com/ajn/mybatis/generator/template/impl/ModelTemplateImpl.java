@@ -35,11 +35,8 @@ public class ModelTemplateImpl extends ModelTemplate {
         String result = "";
         for (TableProp table : tableProp) {
             final String comment = tableInfo.get(table.getColumnName());
-            if (comment != null && !"".equals(comment)) {
-                result += String.format(ModelConstants.COMMENT, comment);
-            }
             result += String.format(ModelConstants.VARIABLE, table.getColumnClassName(),
-                    NameUtil.humpName(table.getColumnName()));
+                    NameUtil.humpName(table.getColumnName()), comment != null && !"".equals(comment) ? "// " + comment : "");
         }
         return result;
     }
