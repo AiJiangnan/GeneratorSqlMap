@@ -16,11 +16,13 @@ public interface MapperConstants {
     String MAPPER_XML_RESULTMAP_END = "\t</resultMap>";
     String MAPPER_XML_RESULTMAP_ID = "\t\t<id column=\"%s\" property=\"%s\" />\r\n";
     String MAPPER_XML_RESULTMAP_RESULT = "\t\t<result column=\"%s\" property=\"%s\" />\r\n";
+    String MAPPER_XML_IF = "\t\t\t<if test=\"%s != null and %s !=''\">\r\n\t\t\t\t`%s`=#{%s},\r\n\t\t\t</if>\r\n";
 
     /**
      * Mapper中的方法
      */
     String MAPPER_XML_INSERT_ENTITY = "\t<insert id=\"ins%s\">\r\n\t\tINSERT INTO %s (<include refid=\"%sList\"></include>) VALUES (%s)\r\n\t</insert>";
     String MAPPER_XML_SELECT_ENTITY_LIST = "\t<select id=\"sel%sList\" resultMap=\"%sMap\">\r\n\t\tSELECT <include refid=\"%sList\"></include> FROM %s\r\n\t</select>";
+    String MAPPER_XML_UPDATE_ENTITY = "\t<update id=\"upd%sById\">\r\n\t\tUPDATE %s\r\n\t\t<trim prefix=\"SET\" suffixOverrides=\",\">\r\n%s\t\t</trim>\r\n\t\tWHERE `id`=#{id}\r\n\t</update>";
 
 }

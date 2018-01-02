@@ -56,17 +56,23 @@ public class MapperTemplateImpl extends MapperTemplate {
     protected String genSqlMethod(String className, String tableName, List<TableProp> tableProp) {
         String result = "";
         String modelVar = "";
+        String ifVar = "";
         for (int i = 0, n = tableProp.size(); i < n; i++) {
-            modelVar += String.format(MapperConstants.MAPPER_XML_MODEL_VARIABLE,
-                    NameUtil.humpName(tableProp.get(i).getColumnName()));
+            String colName = tableProp.get(i).getColumnName();
+            String varName = NameUtil.humpName(colName);
+            modelVar += String.format(MapperConstants.MAPPER_XML_MODEL_VARIABLE, varName);
             if (i < n - 1)
                 modelVar += ",";
+            if (!colName.equals("id"))
+                ifVar += String.format(MapperConstants.MAPPER_XML_IF, varName, varName, colName, varName);
         }
         result += String.format(MapperConstants.MAPPER_XML_INSERT_ENTITY, className, tableName,
                 NameUtil.humpName(className), modelVar);
         result += Constants.NEXT_LINE;
         result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_LIST, className, NameUtil.humpName(className),
                 NameUtil.humpName(className), tableName);
+        result += Constants.NEXT_LINE;
+        result += String.format(MapperConstants.MAPPER_XML_UPDATE_ENTITY, className, tableName, ifVar);
         return result;
     }
 

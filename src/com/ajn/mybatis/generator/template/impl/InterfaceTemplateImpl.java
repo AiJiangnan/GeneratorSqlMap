@@ -29,6 +29,9 @@ public class InterfaceTemplateImpl extends InterfaceTemplate {
                 className + " " + NameUtil.humpName(className));
         result += Constants.NEXT_LINE;
         result += String.format(InterfaceConstants.SELECT_ENTITY_LIST_METHOD, className, className);
+        result += Constants.NEXT_LINE;
+        result += String.format(InterfaceConstants.UPDATE_ENTITY_METHOD, className,
+                className + " " + NameUtil.humpName(className));
         return result;
     }
 

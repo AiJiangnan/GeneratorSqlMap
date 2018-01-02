@@ -15,5 +15,6 @@ public interface InterfaceConstants {
      */
     String SELECT_ENTITY_LIST_METHOD = "\tList<%s> sel%sList();";
     String INSERT_ENTITY_METHOD = "\tint ins%s(%s);";
+    String UPDATE_ENTITY_METHOD = "\tint upd%sById(%s);";
 
 }
