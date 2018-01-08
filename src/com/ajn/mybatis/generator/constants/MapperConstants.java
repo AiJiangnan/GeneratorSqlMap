@@ -16,7 +16,8 @@ public interface MapperConstants {
     String MAPPER_XML_RESULTMAP_END = "\t</resultMap>";
     String MAPPER_XML_RESULTMAP_ID = "\t\t<id column=\"%s\" property=\"%s\" />\r\n";
     String MAPPER_XML_RESULTMAP_RESULT = "\t\t<result column=\"%s\" property=\"%s\" />\r\n";
-    String MAPPER_XML_IF = "\t\t\t<if test=\"%s != null and %s !=''\">\r\n\t\t\t\t`%s`=#{%s},\r\n\t\t\t</if>\r\n";
+    String MAPPER_XML_IF_NULL = "\t\t\t<if test=\"%s != null\">\r\n\t\t\t\t`%s`=#{%s},\r\n\t\t\t</if>\r\n";
+    String MAPPER_XML_IF_NULL_EMPTY = "\t\t\t<if test=\"%s != null and %s !=''\">\r\n\t\t\t\t`%s`=#{%s},\r\n\t\t\t</if>\r\n";
 
     /**
      * Mapper中的方法

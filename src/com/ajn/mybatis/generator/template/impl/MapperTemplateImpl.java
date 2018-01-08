@@ -63,8 +63,13 @@ public class MapperTemplateImpl extends MapperTemplate {
             modelVar += String.format(MapperConstants.MAPPER_XML_MODEL_VARIABLE, varName);
             if (i < n - 1)
                 modelVar += ",";
-            if (!colName.equals("id"))
-                ifVar += String.format(MapperConstants.MAPPER_XML_IF, varName, varName, colName, varName);
+            if (!colName.equals("id")) {
+                if (tableProp.get(i).getColumnClassName().equals("Date")) {
+                    ifVar += String.format(MapperConstants.MAPPER_XML_IF_NULL, varName, varName, colName, varName);
+                } else {
+                    ifVar += String.format(MapperConstants.MAPPER_XML_IF_NULL_EMPTY, varName, varName, colName, varName);
+                }
+            }
         }
         result += String.format(MapperConstants.MAPPER_XML_INSERT_ENTITY, className, tableName,
                 NameUtil.humpName(className), modelVar);
