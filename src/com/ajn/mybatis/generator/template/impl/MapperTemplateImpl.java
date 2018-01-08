@@ -53,7 +53,7 @@ public class MapperTemplateImpl extends MapperTemplate {
     }
 
     @Override
-    protected String genSqlMethod(String className, String tableName, List<TableProp> tableProp) {
+    protected String genSqlMethod(String modelPakName, String className, String tableName, List<TableProp> tableProp) {
         String result = "";
         String modelVar = "";
         String ifVar = "";
@@ -71,13 +71,13 @@ public class MapperTemplateImpl extends MapperTemplate {
                 }
             }
         }
-        result += String.format(MapperConstants.MAPPER_XML_INSERT_ENTITY, className, tableName,
+        result += String.format(MapperConstants.MAPPER_XML_INSERT_ENTITY, className, modelPakName + "." + className, tableName,
                 NameUtil.humpName(className), modelVar);
         result += Constants.NEXT_LINE;
         result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_LIST, className, NameUtil.humpName(className),
                 NameUtil.humpName(className), tableName);
         result += Constants.NEXT_LINE;
-        result += String.format(MapperConstants.MAPPER_XML_UPDATE_ENTITY, className, tableName, ifVar);
+        result += String.format(MapperConstants.MAPPER_XML_UPDATE_ENTITY, className, modelPakName + "." + className, tableName, ifVar);
         return result;
     }
 

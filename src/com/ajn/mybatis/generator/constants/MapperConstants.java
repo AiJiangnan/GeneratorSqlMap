@@ -22,8 +22,8 @@ public interface MapperConstants {
     /**
      * Mapper中的方法
      */
-    String MAPPER_XML_INSERT_ENTITY = "\t<insert id=\"ins%s\">\r\n\t\tINSERT INTO %s (<include refid=\"%sList\"></include>) VALUES (%s)\r\n\t</insert>";
+    String MAPPER_XML_INSERT_ENTITY = "\t<insert id=\"ins%s\" parameterType=\"%s\">\r\n\t\tINSERT INTO %s (<include refid=\"%sList\"></include>) VALUES (%s)\r\n\t</insert>";
     String MAPPER_XML_SELECT_ENTITY_LIST = "\t<select id=\"sel%sList\" resultMap=\"%sMap\">\r\n\t\tSELECT <include refid=\"%sList\"></include> FROM %s\r\n\t</select>";
-    String MAPPER_XML_UPDATE_ENTITY = "\t<update id=\"upd%sById\">\r\n\t\tUPDATE %s\r\n\t\t<trim prefix=\"SET\" suffixOverrides=\",\">\r\n%s\t\t</trim>\r\n\t\tWHERE `id`=#{id}\r\n\t</update>";
+    String MAPPER_XML_UPDATE_ENTITY = "\t<update id=\"upd%sById\" parameterType=\"%s\">\r\n\t\tUPDATE %s\r\n\t\t<trim prefix=\"SET\" suffixOverrides=\",\">\r\n%s\t\t</trim>\r\n\t\tWHERE `id`=#{id}\r\n\t</update>";
 
 }
