@@ -28,11 +28,11 @@ public abstract class InterfaceTemplate {
         String result = "";
         result += genPackage(packageName);
         result += Constants.NEXT_LINE;
-        result += genImport(modelPakName, className);
-        result += Constants.ONE_LINE;
+//        result += genImport(modelPakName, className);
+//        result += Constants.ONE_LINE;
         result += genInterfaceBegin(className);
-        result += Constants.NEXT_LINE;
-        result += genMethod(className);
+//        result += Constants.NEXT_LINE;
+//        result += genMethod(className);
         result += Constants.NEXT_LINE;
         result += genInterfaceEnd();
         return result;

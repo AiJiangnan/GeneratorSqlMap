@@ -71,13 +71,13 @@ public class MapperTemplateImpl extends MapperTemplate {
                 }
             }
         }
-        result += String.format(MapperConstants.MAPPER_XML_INSERT_ENTITY, className, modelPakName + "." + className, tableName,
+        result += String.format(MapperConstants.MAPPER_XML_INSERT_ENTITY, "Entity", modelPakName + "." + className, tableName,
                 NameUtil.humpName(className), modelVar);
         result += Constants.NEXT_LINE;
-        result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_LIST, className, NameUtil.humpName(className),
+        result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_LIST, "Entity", NameUtil.humpName(className),
                 NameUtil.humpName(className), tableName);
         result += Constants.NEXT_LINE;
-        result += String.format(MapperConstants.MAPPER_XML_UPDATE_ENTITY, className, modelPakName + "." + className, tableName, ifVar);
+        result += String.format(MapperConstants.MAPPER_XML_UPDATE_ENTITY, "Entity", modelPakName + "." + className, tableName, ifVar);
         return result;
     }
 
