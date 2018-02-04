@@ -1,8 +1,11 @@
 package com.ajn.mybatis.generator.template;
 
 import com.ajn.mybatis.generator.constants.Constants;
+import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 import com.ajn.mybatis.generator.utils.NameUtil;
+
+import java.util.List;
 
 /**
  * 生成接口Java文件的模板
@@ -17,11 +20,11 @@ public abstract class InterfaceTemplate {
 
     protected abstract String genInterfaceEnd();
 
-    protected abstract String genMethod(String className);
+    protected abstract String genMethod(String className, List<TableProp> tableProp);
 
     protected abstract String genImport(String modelPakName, String className);
 
-    public final String genInterface(String packageName, String modelPakName, Tables table) {
+    public final String genInterface(String packageName, String modelPakName, Tables table, List<TableProp> tableProp) {
         String className = table.getClassName();
         String tableName = table.getTableName();
         className = className == null || "".equals(className) ? NameUtil.bigHumpName(tableName) : className;
@@ -32,7 +35,7 @@ public abstract class InterfaceTemplate {
         result += Constants.ONE_LINE;
         result += genInterfaceBegin(className);
         result += Constants.NEXT_LINE;
-        result += genMethod(className);
+        result += genMethod(className, tableProp);
         result += Constants.NEXT_LINE;
         result += genInterfaceEnd();
         return result;

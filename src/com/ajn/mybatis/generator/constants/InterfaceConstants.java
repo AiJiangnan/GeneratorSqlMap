@@ -14,6 +14,7 @@ public interface InterfaceConstants {
      * 接口中的方法
      */
     String SELECT_ENTITY_LIST_METHOD = "\tList<%s> sel%sList();";
+    String SELECT_ENTITY_BY_ID_METHOD = "\t%s sel%sById(%s);";
     String INSERT_ENTITY_METHOD = "\tint ins%s(%s);";
     String UPDATE_ENTITY_METHOD = "\tint upd%sById(%s);";
 

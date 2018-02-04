@@ -2,8 +2,11 @@ package com.ajn.mybatis.generator.template.impl;
 
 import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.constants.InterfaceConstants;
+import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.template.InterfaceTemplate;
 import com.ajn.mybatis.generator.utils.NameUtil;
+
+import java.util.List;
 
 public class InterfaceTemplateImpl extends InterfaceTemplate {
 
@@ -23,12 +26,21 @@ public class InterfaceTemplateImpl extends InterfaceTemplate {
     }
 
     @Override
-    protected String genMethod(String className) {
+    protected String genMethod(String className, List<TableProp> tableProp) {
+        String idField = "";
+        for (TableProp field : tableProp) {
+            if (field.getColumnName().equals("id")) {
+                idField = field.getColumnClassName();
+                break;
+            }
+        }
         String result = "";
         result += String.format(InterfaceConstants.INSERT_ENTITY_METHOD, className,
                 className + " " + NameUtil.humpName(className));
         result += Constants.NEXT_LINE;
         result += String.format(InterfaceConstants.SELECT_ENTITY_LIST_METHOD, className, className);
+        result += Constants.NEXT_LINE;
+        result += String.format(InterfaceConstants.SELECT_ENTITY_BY_ID_METHOD, className, className, idField + " id");
         result += Constants.NEXT_LINE;
         result += String.format(InterfaceConstants.UPDATE_ENTITY_METHOD, className,
                 className + " " + NameUtil.humpName(className));

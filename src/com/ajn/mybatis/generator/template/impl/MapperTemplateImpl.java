@@ -77,6 +77,9 @@ public class MapperTemplateImpl extends MapperTemplate {
         result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_LIST, className, NameUtil.humpName(className),
                 NameUtil.humpName(className), tableName);
         result += Constants.NEXT_LINE;
+        result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_BY_ID, className, NameUtil.humpName(className),
+                NameUtil.humpName(className), tableName);
+        result += Constants.NEXT_LINE;
         result += String.format(MapperConstants.MAPPER_XML_UPDATE_ENTITY, className, modelPakName + "." + className, tableName, ifVar);
         return result;
     }

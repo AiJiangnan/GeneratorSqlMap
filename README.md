@@ -47,3 +47,5 @@ public class Main {
    `int insExmaple(Example example);`
 3. 更新  
    `int updExampleById(Example example);`
+4. 通过ID查询  
+   `Example selExampleById(Object id);`
