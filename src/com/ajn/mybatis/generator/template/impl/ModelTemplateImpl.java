@@ -1,14 +1,15 @@
 package com.ajn.mybatis.generator.template.impl;
 
-import java.util.List;
-import java.util.Map;
-
-import com.ajn.mybatis.generator.constants.ModelConstants;
 import com.ajn.mybatis.generator.constants.Constants;
+import com.ajn.mybatis.generator.constants.ModelConstants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 import com.ajn.mybatis.generator.template.ModelTemplate;
 import com.ajn.mybatis.generator.utils.NameUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ModelTemplateImpl extends ModelTemplate {
 
@@ -33,7 +34,15 @@ public class ModelTemplateImpl extends ModelTemplate {
     @Override
     protected String genVariable(List<TableProp> tableProp, Map<String, String> tableInfo) {
         String result = "";
+        List<String> noGen = new ArrayList<>();
+        noGen.add("create_user");
+        noGen.add("create_time");
+        noGen.add("update_user");
+        noGen.add("update_time");
+        noGen.add("description");
         for (TableProp table : tableProp) {
+            if (noGen.contains(table.getColumnName()))
+                continue;
             final String comment = tableInfo.get(table.getColumnName());
             result += String.format(ModelConstants.VARIABLE, table.getColumnClassName(),
                     NameUtil.humpName(table.getColumnName()), comment != null && !"".equals(comment) ? "// " + comment : "");
@@ -44,7 +53,15 @@ public class ModelTemplateImpl extends ModelTemplate {
     @Override
     protected String genGetter(List<TableProp> tableProp) {
         String result = "";
+        List<String> noGen = new ArrayList<>();
+        noGen.add("create_user");
+        noGen.add("create_time");
+        noGen.add("update_user");
+        noGen.add("update_time");
+        noGen.add("description");
         for (TableProp table : tableProp) {
+            if (noGen.contains(table.getColumnName()))
+                continue;
             String humpName = NameUtil.humpName(table.getColumnName());
             String bigHumpName = NameUtil.bigHumpName(table.getColumnName());
             result += String.format(ModelConstants.GETTER, table.getColumnClassName(), bigHumpName, humpName);
@@ -56,7 +73,15 @@ public class ModelTemplateImpl extends ModelTemplate {
     @Override
     protected String genSetter(List<TableProp> tableProp) {
         String result = "";
+        List<String> noGen = new ArrayList<>();
+        noGen.add("create_user");
+        noGen.add("create_time");
+        noGen.add("update_user");
+        noGen.add("update_time");
+        noGen.add("description");
         for (TableProp table : tableProp) {
+            if (noGen.contains(table.getColumnName()))
+                continue;
             String humpName = NameUtil.humpName(table.getColumnName());
             String bigHumpName = NameUtil.bigHumpName(table.getColumnName());
             result += String.format(ModelConstants.SETTER, bigHumpName, table.getColumnClassName(), humpName, humpName,

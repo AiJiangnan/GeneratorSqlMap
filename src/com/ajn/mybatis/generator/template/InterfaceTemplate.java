@@ -34,8 +34,8 @@ public abstract class InterfaceTemplate {
         result += genImport(modelPakName, className);
         result += Constants.ONE_LINE;
         result += genInterfaceBegin(className);
-        result += Constants.NEXT_LINE;
-        result += genMethod(className, tableProp);
+//        result += Constants.NEXT_LINE;
+//        result += genMethod(className, tableProp);
         result += Constants.NEXT_LINE;
         result += genInterfaceEnd();
         return result;

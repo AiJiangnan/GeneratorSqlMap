@@ -1,12 +1,12 @@
 package com.ajn.mybatis.generator.template.impl;
 
-import java.util.List;
-
 import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.constants.MapperConstants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.template.MapperTemplate;
 import com.ajn.mybatis.generator.utils.NameUtil;
+
+import java.util.List;
 
 public class MapperTemplateImpl extends MapperTemplate {
 
@@ -53,7 +53,7 @@ public class MapperTemplateImpl extends MapperTemplate {
     }
 
     @Override
-    protected String genSqlMethod(String modelPakName, String className, String tableName, List<TableProp> tableProp) {
+    protected String genSqlMethod(String className, String tableName, List<TableProp> tableProp) {
         String result = "";
         String modelVar = "";
         String ifVar = "";
@@ -71,16 +71,16 @@ public class MapperTemplateImpl extends MapperTemplate {
                 }
             }
         }
-        result += String.format(MapperConstants.MAPPER_XML_INSERT_ENTITY, className, modelPakName + "." + className, tableName,
+        result += String.format(MapperConstants.MAPPER_XML_INSERT_ENTITY, "Entity", className, tableName,
                 NameUtil.humpName(className), modelVar);
         result += Constants.NEXT_LINE;
-        result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_LIST, className, NameUtil.humpName(className),
+        result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_LIST, "Entity", NameUtil.humpName(className),
                 NameUtil.humpName(className), tableName);
         result += Constants.NEXT_LINE;
-        result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_BY_ID, className, NameUtil.humpName(className),
+        result += String.format(MapperConstants.MAPPER_XML_SELECT_ENTITY_BY_ID, "Entity", NameUtil.humpName(className),
                 NameUtil.humpName(className), tableName);
         result += Constants.NEXT_LINE;
-        result += String.format(MapperConstants.MAPPER_XML_UPDATE_ENTITY, className, modelPakName + "." + className, tableName, ifVar);
+        result += String.format(MapperConstants.MAPPER_XML_UPDATE_ENTITY, "Entity", className, tableName, ifVar);
         return result;
     }
 

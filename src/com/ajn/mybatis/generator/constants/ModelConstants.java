@@ -7,7 +7,7 @@ package com.ajn.mybatis.generator.constants;
  */
 public interface ModelConstants {
 
-    String CLASS_BEGIN = "public class %s implements Serializable {";
+    String CLASS_BEGIN = "public class %s extends BaseModel implements Serializable {";
     String CLASS_END = "}";
     // String COMMENT = "\t/** %s */\r\n";
     String VARIABLE = "\tprivate %s %s;%s\r\n";

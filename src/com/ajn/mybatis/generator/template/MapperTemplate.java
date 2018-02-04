@@ -1,11 +1,11 @@
 package com.ajn.mybatis.generator.template;
 
-import java.util.List;
-
 import com.ajn.mybatis.generator.constants.Constants;
 import com.ajn.mybatis.generator.model.TableProp;
 import com.ajn.mybatis.generator.model.Tables;
 import com.ajn.mybatis.generator.utils.NameUtil;
+
+import java.util.List;
 
 /**
  * 生成Mapper的XML文件的模板
@@ -22,7 +22,7 @@ public abstract class MapperTemplate {
 
     protected abstract String genSqlList(String className, List<TableProp> tableProp);
 
-    protected abstract String genSqlMethod(String modelPakName, String className, String tableName, List<TableProp> tableProp);
+    protected abstract String genSqlMethod(String className, String tableName, List<TableProp> tableProp);
 
     protected abstract String genResultMap(String modelPakName, String className, List<TableProp> tableProp);
 
@@ -38,7 +38,7 @@ public abstract class MapperTemplate {
         result += Constants.NEXT_LINE;
         result += genResultMap(modelPakName, className, tableProp);
         result += Constants.NEXT_LINE;
-        result += genSqlMethod(modelPakName, className, tableName, tableProp);
+        result += genSqlMethod(className, tableName, tableProp);
         result += Constants.NEXT_LINE;
         result += genMapperEnd();
         return result;
