@@ -7,7 +7,7 @@ package com.ajn.mybatis.generator.constants;
  */
 public interface InterfaceConstants {
 
-    String INTERFACE_BEGIN = "public interface %sMapper {";
+    String INTERFACE_BEGIN = "public interface %sMapper extends BaseMapper {";
     String INTERFACE_END = "}";
 
     /**
