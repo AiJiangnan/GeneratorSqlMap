@@ -36,8 +36,8 @@ public abstract class MapperTemplate {
         result += Constants.NEXT_LINE;
         result += genSqlList(className, tableProp);
         result += Constants.NEXT_LINE;
-        result += genResultMap(modelPakName, className, tableProp);
-        result += Constants.NEXT_LINE;
+//        result += genResultMap(modelPakName, className, tableProp);
+//        result += Constants.NEXT_LINE;
         result += genSqlMethod(className, tableName, tableProp);
         result += Constants.NEXT_LINE;
         result += genMapperEnd();
